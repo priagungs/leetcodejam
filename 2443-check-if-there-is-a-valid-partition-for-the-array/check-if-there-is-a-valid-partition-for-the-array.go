@@ -24,11 +24,6 @@ func isValid(nums []int, length int, mem map[int]bool) bool {
     }
 
     a, b, c := nums[size-length], nums[size-(length-1)], nums[size-(length-2)]
-    if length == 3 {
-        mem[length] = isSame3(a,b,c) || isConsecutiveIncreasing(a,b,c) 
-        return mem[length]
-    }
-
     res := (isSame3(a,b,c) || isConsecutiveIncreasing(a,b,c)) && isValid(nums, length-3, mem)
     res = res || (a == b && isValid(nums, length-2, mem))
     mem[length] = res
