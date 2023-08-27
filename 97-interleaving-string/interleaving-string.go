@@ -1,13 +1,13 @@
 type key struct {
-    lenS1, lenS2, lenS3 int
+    lenS1, lenS2 int
 }
 
 func isInterleave(s1 string, s2 string, s3 string) bool {
-    return solve(s1, s2, s3, make(map[key]bool, len(s1)+len(s2)+len(s3)))
+    return solve(s1, s2, s3, make(map[key]bool, len(s1)+len(s2)))
 }
 
 func solve(s1, s2, s3 string, mem map[key]bool) bool {
-    memKey := key{lenS1: len(s1), lenS2: len(s2), lenS3: len(s3)}
+    memKey := key{lenS1: len(s1), lenS2: len(s2)}
     if val, found := mem[memKey]; found {
         return val
     }
