@@ -38,7 +38,6 @@ func Constructor() MyStack {
 
 func (this *MyStack) Push(x int)  {
     this.queues[this.queueSelector].Push(x)
-    fmt.Printf("%+v\n", this.queues[this.queueSelector])
 }
 
 
